@@ -69,3 +69,35 @@
 - Configuration settings are managed by the Configuration Manager.
 - Settings include connection details, timeouts, retry policies, etc.
 - Configuration changes can be applied dynamically without restarting the broker.
+
+## Design
+
++------------------------------------------------+
+|                   jPOS Broker                  |
++------------------------------------------------+
+|                                                |
+|  +----------------+    +-------------------+   |
+|  |  POS Connector |    | Acquirer Connector|   |
+|  +----------------+    +-------------------+   |
+|          |                        |            |
+|          v                        v            |
+|  +-----------------------------------------+   |
+|  |             Message Processor           |   |
+|  +-----------------------------------------+   |
+|                        |                       |
+|                        v                       |
+|  +-----------------------------------------+   |
+|  |            Transaction Manager          |   |
+|  +-----------------------------------------+   |
+|                        |                       |
+|                        v                       |
+|  +-----------------------------------------+   |
+|  |          Logging and Monitoring         |   |
+|  +-----------------------------------------+   |
+|                        |                       |
+|                        v                       |
+|  +-----------------------------------------+   |
+|  |           Configuration Manager         |   |
+|  +-----------------------------------------+   |
+|                                                |
++------------------------------------------------+
